@@ -1,0 +1,31 @@
+{
+  "name": "demigs.com",
+  "version": "1.0.0",
+  "description": "The Demigs Website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/brandom/thedemigs.com.git"
+  },
+  "author": "Brandon Van Noy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/brandom/thedemigs.com/issues"
+  },
+  "homepage": "https://github.com/brandom/thedemigs.com",
+  "dependencies": {
+    "express": "^4.10.7"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.10",
+    "gulp-concat": "^2.4.3",
+    "gulp-debug": "^2.0.0",
+    "gulp-filter": "^2.0.0",
+    "gulp-order": "^1.1.1",
+    "main-bower-files": "^2.4.1",
+    "rimraf": "^2.2.8"
+  }
+}

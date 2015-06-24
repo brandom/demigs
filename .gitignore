@@ -1,0 +1,8 @@
+*~
+*#
+.DS_STORE
+node_modules
+bower_components
+components/**/*.js
+dist
+npm-debug.log

@@ -1,0 +1,7 @@
+<div masonry masonry-options="{ transitionDuration: '0.4s', isFitWidth: true }" class="masonry">
+    <div class="masonry-brick" ng-repeat="art in artwork">
+      <a ng-href="assets/artwork/full/{{art.file}}" br-fancybox title="{{art.title}}">
+        <img ng-src="assets/artwork/thumbs/{{art.file}}" class="img-responsive">
+      </a>
+    </div>
+</div>
