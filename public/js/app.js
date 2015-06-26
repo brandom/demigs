@@ -1,4 +1,4 @@
-angular.module('demigs', ['ngRoute','ngSanitize','brSocialFeed','brSoundCloud','akoenig.deckgrid','wu.masonry'])
+angular.module('demigs', ['ngMaterial','ngTouch','ngRoute','ngSanitize','brSocialFeed','brSoundCloud','akoenig.deckgrid','wu.masonry'])
 
 .config(function($routeProvider, $locationProvider) {
   $routeProvider
@@ -34,16 +34,12 @@ angular.module('demigs', ['ngRoute','ngSanitize','brSocialFeed','brSoundCloud','
   var title = '';
   var pageClass = '';
   var navActive = false;
-  var playerActive = false;
   return {
     isActive: function(route) {
       return route === $location.path();
     },
     navActive: function() {
       return navActive;
-    },
-    playerActive: function() {
-      return playerActive;
     },
     title: function() { 
       return 'The Demigs | ' + title;
@@ -66,8 +62,8 @@ angular.module('demigs', ['ngRoute','ngSanitize','brSocialFeed','brSoundCloud','
       navActive = !navActive;
       playerActive = false;
     },
-    togglePlayer: function() {
-      playerActive = !playerActive;
+    hideNav: function() {
+      navActive = false;
     }
   };
 })
@@ -112,7 +108,8 @@ angular.module('demigs', ['ngRoute','ngSanitize','brSocialFeed','brSoundCloud','
   ]
 )
 
-.controller('PageCtrl', function($scope, Page, SC) {
+.controller('PageCtrl', function($scope, Page, SC, $mdMedia) {
+  $scope.$medMedia = $mdMedia;
   $scope.Page = Page;
   $scope.player = SC;
   $scope.$watch('player.volume', function(newVal) {
@@ -136,9 +133,10 @@ angular.module('demigs', ['ngRoute','ngSanitize','brSocialFeed','brSoundCloud','
   
 })
 
-.controller('AlbumsCtrl', function($scope, Page, SocialFeed) {
+.controller('AlbumsCtrl', function($scope, Page, SocialFeed, SC) {
   Page.setTitle('Albums');
   Page.setClass('icarus');
+  $scope.Player = SC;
 })
 
 .controller('CalendarCtrl', function($scope, Page) {

@@ -5,6 +5,8 @@ var bower = require('main-bower-files');
 var rimraf = require('rimraf');
 var filter = require('gulp-filter');
 var debug = require('gulp-debug');
+var browserSync = require('browser-sync').create();
+historyApiFallback = require('connect-history-api-fallback');
 
 var paths = {
   vendorJS: [
@@ -34,7 +36,6 @@ gulp.task('js', function() {
   return gulp.src(bower())
     .pipe(filter('*.js'))
     .pipe(order(paths.vendorJS))
-    // .pipe(debug())
     .pipe(concat('vendor.js'))
     .pipe(gulp.dest(paths.public + 'js'));
 })
@@ -48,7 +49,7 @@ gulp.task('css', function() {
 
 gulp.task('build', ['js', 'css']);
 
-gulp.task('default', ['build', 'watch']);
+gulp.task('default', ['build', 'browser-sync']);
 
 gulp.task('watch', function() {
   console.log('Watching all files');
@@ -59,6 +60,17 @@ gulp.task('watch', function() {
   function logWatch(event) {
     console.log('*** File ' + event.path + ' was ' + event.type + ', running tasks..');
   }
+});
+
+gulp.task('browser-sync', function() {
+    browserSync.init({
+        server: {
+            baseDir: "./public",
+            files: ['./public/**/*'],
+            middleware: [ historyApiFallback() ]
+        }
+    });
+    gulp.watch("./public/**/*").on('change', browserSync.reload);
 });
 
 //'less', 'js', 'js-view', 'dist'
