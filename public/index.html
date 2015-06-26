@@ -11,17 +11,14 @@
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <!-- Place favicon.ico in the root directory -->
   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-  <!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"> -->
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.10.0/angular-material.min.css">
   <link rel="stylesheet" href="css/social-feed.css">
   <link rel="stylesheet" href="css/vendor.css">
   <link rel="stylesheet" href="css/main.css">
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-
-  <!--<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>-->
 </head>
 <body layout="row" ng-cloak>
-  <md-sidenav class="left-nav" md-no-ink md-is-locked-open="$mdMedia('gt-md')" md-is-open="Page.navActive()" layout="column" layout-align="space-between">
+  <md-sidenav class="left-nav md-whiteframe-z3" md-no-ink md-is-locked-open="$mdMedia('gt-md')" md-is-open="Page.navActive()" layout="column" layout-align="space-between">
     <div class="nav-flex">
       <div ng-include="'assets/img/thedemigs.svg'" class="logo"></div>
       <i class="left-nav-close fa fa-times" ng-click="Page.hideNav()"></i>
@@ -51,7 +48,7 @@
           <i class="fa fa-4x fa-forward prevnext" ng-click="player.next()"></i>
           <div class="player-knobs">
             <div class="volume">
-              <input type="text" ng-model="player.volume" class="volume" sc-player-knob data-angleOffset="70" data-angleArc="320" data-thickness=".4" data-step="10" data-angleOffset="0" data-width="55" data-height="55" data-fgColor="rgba(163, 61, 34, .6)" data-bgColor="rgba(163, 61, 34, 0.5)" data-displayInput="false">
+              <input type="text" ng-model="player.volume" class="volume" sc-player-knob data-angleOffset="70" data-angleArc="320" data-thickness=".4" data-step="10" data-angleOffset="0" data-width="55" data-height="55" data-fgColor="rgba(202, 173, 30, .6)" data-bgColor="rgba(202, 173, 30, .5)" data-displayInput="false">
             </div>
           </div>
           <div class="player-info">
@@ -63,13 +60,12 @@
     </div>
   </md-sidenav>
   <div layout="column" role="main" flex>
-    <md-toolbar class="mobile-nav md-whiteframe-z2" md-scroll-shrink>
-      <div class="md-toolbar-tools">
-        <div layout="row" flex class="fill-height">
-          <span ng-include="'assets/img/thedemigs.svg'" class="mobile-logo"></span>
-          <span flex></span>
-          <img src="assets/img/hand-icon.png" class="mobile-nav-hand" ng-click="Page.toggleNav()"></img>
-        </div>
+    <md-toolbar class="mobile-nav">
+      <div layout="row" flex class="fill-height">
+        <span flex></span>
+        <md-button class="md-fab nav-bars" aria-label="Navigation" ng-click="Page.toggleNav()">
+          <md-icon md-font-icon="fa fa-bars"></md-icon>
+        </md-button>
       </div>
     </md-toolbar>
     <md-content flex class="content" ng-cloak>
@@ -87,33 +83,6 @@
       </div>
     </md-content>
   </div>
-  <!-- <div class="mobile-bg"></div>
-  <div class="mobile-nav">
-    <span ng-include="'assets/img/thedemigs.svg'" class="logo"></span>
-    <span class="mobile-nav-toggle" ng-click="Page.toggleNav()">
-      <img src="assets/img/hand-icon.png" class="mobile-nav-hand"></img>
-      <i class="mobile-nav-close fa fa-times"></i>
-    </span>
-    <span class="mobile-nav-toggle player-toggle" ng-click="Page.togglePlayer()">
-      <i class="mobile-nav-player fa fa-play"></i>
-    </span>
-    <span class="nav" ng-include="'assets/img/nav.svg'"></span>
-    <span class="player">
-      <div class="player-content">
-        <img src="assets/img/welcometohardtimes.png" class="album-cover" ng-click="player.play()">
-        <span class="player-control">
-          <i class="fa fa-4x fa-backward prevnext" ng-click="player.previous()"></i>
-          <i class="fa fa-4x playpause" ng-class="player.controlDisplay" ng-click="player.play()"></i>
-          <i class="fa fa-4x fa-forward prevnext" ng-click="player.next()"></i>
-          <span class="clearfix"></span>
-          <div class="player-info">
-            {{player.current.title}}<br/>
-            <span ng-if="player.position && player.position > 9">{{(player.position | duration) || '00:00'}} / {{player.duration | duration}}</span>
-          </div>
-        </span>
-      </div>
-    </span>
-  </div> -->
   <script src="js/vendor.js"></script>
   <script type="text/javascript" src="http://fast.fonts.net/jsapi/56dd6f64-ea41-48f9-9cef-eb0ab9eb63d0.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angular_material/0.10.0/angular-material.min.js"></script>
