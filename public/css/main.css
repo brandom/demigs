@@ -91,7 +91,7 @@ md-sidenav.left-nav {
 }
 
 .player-artwork {
-  border: 3px solid #000;
+  border: 3px solid #FFF;
   max-width: 90%;
 }
 
@@ -217,9 +217,6 @@ md-sidenav.left-nav {
 }
 
 .active-page > * {
-  /*stroke: #FFF !important;*/
-  /*fill: #FFF !important;*/
-  /*stroke: #FFF;*/
   stroke-width: 0.8;
 }
 
@@ -245,9 +242,6 @@ md-sidenav.left-nav {
     font-size: 1.3em;
   }
 }
-/*@media only screen and (max-device-width : 992px) and (orientation: landscape) {
-  .nav { width: 70%; }
-}*/
 
 .track-list {
   font-size: .8em;
@@ -333,9 +327,7 @@ md-sidenav.left-nav {
 }
 
 .masonry-brick {
-  margin: 5px;
-  /*margin-right: 10px;*/
-  /*margin-bottom: 5px;*/
+  margin: 20px;
   display: none;
   width: 245px;
 }
@@ -434,10 +426,20 @@ section .date {
 
 .mobile-nav {
   background: none;
+  width: 80px;
   position: absolute;
   bottom: 5px;
-  left: 0;
+  right: 0;
   z-index: 1;
+}
+
+.mobile-nav > .md-button {
+  background-color: #CAAD1E;
+  font-size: 1em;
+}
+
+.mobile-nav > .md-button:hover, .mobile-nav > .md-button:active, .mobile-nav > .md-button:focus {
+  background-color: #E8CF54 !important;
 }
 
 .left-nav-close {
@@ -461,8 +463,8 @@ section .date {
     border-left: none;
   }
   .page-content {
-    padding: 10px;
-    padding-right: 15px;
+    padding: 30px;
+    padding-right: 35px;
   }
   .logo-container {
     height: 10vw;
@@ -526,18 +528,6 @@ section .date {
   .album-title {
     font-size: 1.5em;
   }
-}
-
-.md-button.md-fab.nav-bars {
-  /*border: 2px solid #FFF;*/
-  background-color: #CAAD1E;
-  font-size: 1em;
-  margin: 10px;
-  
-}
-
-.md-button.md-fab.nav-bars:hover, .md-button.md-fab.nav-bars:hover:active, .md-button.md-fab.nav-bars:focus {
-  background-color: #E8CF54;
 }
 
 /* Speed up or disable animation */

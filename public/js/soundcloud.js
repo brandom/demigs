@@ -376,7 +376,7 @@ angular.module('brSoundCloud', [])
 .filter('duration', function() {
   return function(input) {
     var duration = moment.duration(input).format('mm:ss', { trim: false });
-    if (duration == '00:00' || undefined) return '';
+    if (duration == '00:00' || undefined) return '--:--';
     return duration;
   };
 })

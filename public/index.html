@@ -61,12 +61,9 @@
   </md-sidenav>
   <div layout="column" role="main" flex>
     <md-toolbar class="mobile-nav">
-      <div layout="row" flex class="fill-height">
-        <span flex></span>
-        <md-button class="md-fab nav-bars" aria-label="Navigation" ng-click="Page.toggleNav()">
-          <md-icon md-font-icon="fa fa-bars"></md-icon>
-        </md-button>
-      </div>
+      <md-button class="md-fab nav-bars" aria-label="Navigation" ng-click="Page.toggleNav()">
+        <md-icon md-font-icon="fa fa-bars"></md-icon>
+      </md-button>
     </md-toolbar>
     <md-content flex class="content" ng-cloak>
       <div class="page-content" ng-show="Page.pageTitle()" layout="column">
