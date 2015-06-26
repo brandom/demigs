@@ -216,8 +216,8 @@ angular.module('brSoundCloud', [])
   },
   {
     title: 'Throw Me Overboard', //Wrong?
-    id: 211853829,
-    secret: 's-UyGhJ',
+    id: 211852806,
+    secret: 's-ZXS3X',
     album: 2
   },
   {

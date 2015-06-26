@@ -53,7 +53,8 @@ md-sidenav.left-nav {
   box-shadow: none;
   vertical-align: middle;
   text-align: center;
-  width: 100%;
+  margin-left: 5%;
+  width: 90%;
   z-index: 15;
   margin-bottom: 10px;
 }
@@ -393,13 +394,10 @@ section {
 }
 
 section > h2 {
-  /*width: 60%;*/
   margin-top: 0px;
-  max-width: 100%;
   font-family:'Schmutz W01 Cleaned';
-  font-size: 3em;
+  font-size: 2em;
   margin-bottom: 0px;
-  /*font-style: italic;*/
 }
 
 section p {
