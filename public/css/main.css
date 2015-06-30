@@ -1,6 +1,4 @@
 html, body {
-  height: 100%;
-  width: 100%;
   font-family: 'Open Sans', sans-serif;
   -webkit-font-smoothing: subpixel-antialiased;
 }
@@ -21,8 +19,14 @@ a:hover , a:active {
 
 .img-responsive {
   border: 3px solid #FFF;
-  max-width:100%;
+  max-width: 100%;
   height:auto;
+}
+
+@-moz-document url-prefix() {  
+  img {   
+    width: 100%;
+  }
 }
 
 a:hover > .img-responsive {
@@ -31,9 +35,9 @@ a:hover > .img-responsive {
 
 .logo {
   width: 70%;
-  margin-left: 10%;
-  margin-top: 10%;
-  float: left;
+  margin: 0 auto;
+  margin-top: 20px;
+  /*float: left;*/
 }
 
 md-sidenav.left-nav {
@@ -46,6 +50,8 @@ md-sidenav.left-nav {
   background-image: url("../assets/img/bg-nav.jpg");
   background-size: cover;
   -webkit-overflow-scrolling: touch;
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
 }
 
 .nav {
@@ -53,6 +59,8 @@ md-sidenav.left-nav {
   margin-top: 0px;
   margin-left: -10px;
   z-index: 10;
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
 }
 
 .nav:hover {
@@ -70,11 +78,11 @@ md-sidenav.left-nav {
 }
 
 .player-content {
-  color: rgba(202, 173, 30, 0.5);
+  color: rgba(136, 97, 69, .5);
 }
 
 .player-content:hover {
-  color: rgba(202, 173, 30, .8);
+  color: rgba(136, 97, 69, .8);
 }
 
 .player-control {
@@ -93,6 +101,8 @@ md-sidenav.left-nav {
 .player-artwork {
   border: 3px solid #FFF;
   max-width: 90%;
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
 }
 
 .playpause {
@@ -112,7 +122,7 @@ md-sidenav.left-nav {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  background-color: rgba(202, 173, 30, .8);
+  background-color: rgba(136, 97, 69, .8);
 }
 
 .prevnext {
@@ -212,7 +222,7 @@ md-sidenav.left-nav {
   font-size: 5vw;
   letter-spacing: -3px;
   font-family:'Schmutz W01 Cleaned';
-  color: #CAAD1E;
+  color: #A9921D;
   text-transform: uppercase;
 }
 
@@ -359,7 +369,7 @@ md-sidenav.left-nav {
   text-align: center;
   margin: 0 auto;
   margin-top: 10px;
-  color: #FFF;
+  color: #000;
 }
 
 .social-media-links .fa-lg {
@@ -399,13 +409,14 @@ section p {
   margin-top: 10px;
 }
 
-section .video {
+.video {
 	position: relative;
-	padding-bottom: 56.25%; /* 16:9 */
+	padding-bottom: 56.34%; /* 16:9 */
 	padding-top: 25px;
 	height: 0;
+  overflow: hidden;
 }
-section .video > iframe {
+.video  iframe, .video embed, .video object {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -434,7 +445,7 @@ section .date {
 }
 
 .mobile-nav > .md-button {
-  background-color: #CAAD1E;
+  background-color: #A9921D;
   font-size: 1em;
 }
 
@@ -443,10 +454,13 @@ section .date {
 }
 
 .left-nav-close {
+  color: #FFF;
+  position: absolute;
   margin: 10px;
   display: inline-block !important;
-  float: right; 
-  font-size: 2.5em;
+  top: 0;
+  right: 5px;
+  font-size: 2em;
 }
 
 @media (min-width: 960px) {
@@ -463,8 +477,9 @@ section .date {
     border-left: none;
   }
   .page-content {
-    padding: 30px;
-    padding-right: 35px;
+    padding: 20px;
+    padding-right: 25px;
+    padding-top: 0px;
   }
   .logo-container {
     height: 10vw;
@@ -481,11 +496,11 @@ section .date {
     font-size: 10vw;
   }
   .player-content {
-    color: rgba(202, 173, 30, .8);
+    color: rgba(136, 97, 69, .8)
   }
   .player-content .prevnext  {
     display: inline-block !important;
-    color: rgba(202, 173, 30, .8);
+    color: rgba(136, 97, 69, .8);
   }
   .player-content .player-info  {
     display: inline-block !important;
@@ -532,11 +547,30 @@ section .date {
 
 /* Speed up or disable animation */
 .md-sidenav-left.md-closed, md-sidenav.md-closed {
-  -webkit-transform: translate3d(-400px,0,0);
-  transform: translate3d(-400px,0,0);
+  /*-webkit-transform: translate3d(-700px,0,0);
+  transform: translate3d(-700px,0,0);*/
 }
 
 md-sidenav.md-locked-open, md-sidenav.md-locked-open-remove.md-closed, md-sidenav.md-locked-open.md-closed, md-sidenav.md-locked-open.md-closed.md-sidenav-left, md-sidenav.md-locked-open.md-closed.md-sidenav-right {
-  -webkit-transform: translate3d(0px,0,0);
-  transform: translate3d(0px,0,0);
+  /*-webkit-transform: translate3d(0px,0,0);
+  transform: translate3d(0px,0,0);*/
+  /*transition: transform .1s ease-in-out;*/
+}
+
+md-sidenav {
+  height: 100%;
+  /*bottom: auto;*/
+  position: absolute;
+}
+
+md-sidenav.md-closed {
+  /*visibility: hidden;*/
+  /*left: -400px;*/
+}
+
+.callout {
+  font-size: 1.3em;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 10px;
 }

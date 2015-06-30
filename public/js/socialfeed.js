@@ -8,16 +8,19 @@ angular.module('brSocialFeed', [])
     show_media: true, // show images of attachments if available
     length: 10000 // maximum length of post message shown
   };
+  
+  var instagramResults = [];
+  var twitterResults = [];
 
   var options = _.extend(defaults, {
     instagram:{
       accounts: ['@thedemigs','#thedemigs','#demigin'],
-      limit: 100,
+      limit: 30,
       client_id: '4afddf3b7ce44958979c2fcc8432dd3b'
     },
     twitter:{
       accounts: ['@thedemigs','#demigin'],
-      limit: 100,
+      limit: 30,
       consumer_key: '5zLQG35QzfZp8KCrgcHoMKxhH', // make sure to have your app read-only
       consumer_secret: 'O7llcLCmEYaoEWY7VOWdH0IagmCLbU1cfuOSDuBdMIBEeNEl95' // make sure to have your app read-only
     }
@@ -90,7 +93,7 @@ angular.module('brSocialFeed', [])
     this.content.text = Utility.wrapLinks(Utility.shorten(data.message + ' ' + data.description), data.social_network);
     this.content.moderation_passed = (options.moderation) ? options.moderation(this.content) : true;
     
-    _.each()
+    // _.each()
     
     Feed.posts.push(this.content);
     defer.notify(Feed.posts);
@@ -380,7 +383,9 @@ angular.module('brSocialFeed', [])
       utility: {
         getImages: function(json) {
           json.data.forEach(function(element) {
-            var post = new SocialFeedPost('instagram', Feed.instagram.utility.unifyPostData(element));
+            if (_.indexOf(instagramResults, element.id) < 0) {
+              var post = new SocialFeedPost('instagram', Feed.instagram.utility.unifyPostData(element));
+            }
           });
         },
         getUsers: function(json, username) {
@@ -393,7 +398,7 @@ angular.module('brSocialFeed', [])
         },
         unifyPostData: function(element) {
           var post = {};
-          
+          instagramResults.push(element.id);
           post.id = element.id;
           post.dt_create = moment(element.created_time * 1000);
           post.author_link = 'http://instagram.com/' + element.user.username;

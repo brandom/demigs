@@ -17,7 +17,8 @@
   },
   "homepage": "https://github.com/brandom/thedemigs.com",
   "dependencies": {
-    "express": "^4.10.7"
+    "express": "^4.10.7",
+    "twitter": "^1.2.5"
   },
   "devDependencies": {
     "browser-sync": "^2.7.12",

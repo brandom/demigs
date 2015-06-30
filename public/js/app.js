@@ -30,16 +30,15 @@ angular.module('demigs', ['ngMaterial','ngTouch','ngRoute','ngSanitize','brSocia
   $locationProvider.html5Mode(true);
 })
 
-.factory('Page', function($location) {
+.factory('Page', function($location, $mdSidenav, $anchorScroll) {
   var title = '';
   var pageClass = '';
-  var navActive = false;
   return {
     isActive: function(route) {
       return route === $location.path();
     },
-    navActive: function() {
-      return navActive;
+    navOpen: function() {
+      return $mdSidenav('left').isOpen();
     },
     title: function() { 
       return 'The Demigs | ' + title;
@@ -51,19 +50,18 @@ angular.module('demigs', ['ngMaterial','ngTouch','ngRoute','ngSanitize','brSocia
       return pageClass;
     },
     setTitle: function(newTitle) {
-      navActive = false;
-      playerActive = false;
+      $anchorScroll('top');
+      $mdSidenav('left').close();
       title = newTitle;
     },
     setClass: function(newClass) {
       pageClass = newClass;
     },
     toggleNav: function() {
-      navActive = !navActive;
-      playerActive = false;
+      $mdSidenav('left').toggle();
     },
     hideNav: function() {
-      navActive = false;
+      $mdSidenav('left').close();
     }
   };
 })
@@ -104,7 +102,75 @@ angular.module('demigs', ['ngMaterial','ngTouch','ngRoute','ngSanitize','brSocia
     {
       file: 'wtht-cover-no-words.png',
       title: 'Welcome to Hard Times Cover Collage by Chris Demiglio'
-    }
+    },
+    {
+      file: 'wtht-promo-blur.png',
+      title: 'Welcome to Hard Times Promo Photo by Tesa Morin'
+    },
+    {
+      file: 'wtht-promo-squares.png',
+      title: 'Welcome to Hard Times Promo Photo by Tesa Morin'
+    },
+    {
+      file: 'wtht-promo.png',
+      title: 'Welcome to Hard Times Promo Material by Tesa Morin'
+    },
+    {
+      file: 'wtht-release-poster.png',
+      title: 'Welcome to Hard Times Release Poster'
+    },
+    {
+      file: 'cities-cover.png',
+      title: 'Cities Can Wait Album Cover'
+    },
+    {
+      file: 'citiesbook1.png',
+      title: 'Cities Can Wait Artwork'
+    },
+    {
+      file: 'citiesbook2.png',
+      title: 'Cities Can Wait Artwork'
+    },
+    {
+      file: 'citiesbook3.png',
+      title: 'Cities Can Wait Artwork'
+    },
+    {
+      file: 'citiesbook4.png',
+      title: 'Cities Can Wait Artwork by Jon Demiglio'
+    },
+    {
+      file: 'citiesbook5.png',
+      title: 'Cities Can Wait Artwork'
+    },
+    {
+      file: 'citiesbook6.png',
+      title: 'Cities Can Wait Artwork'
+    },
+    {
+      file: 'citiesbook7.png',
+      title: 'Cities Can Wait Artwork'
+    },
+    {
+      file: 'citiesbook8.png',
+      title: 'Cities Can Wait Artwork'
+    },
+    {
+      file: 'citiesbook9.png',
+      title: 'Cities Can Wait Artwork'
+    },
+    {
+      file: 'citiesbook10.png',
+      title: 'Cities Can Wait Artwork'
+    },
+    {
+      file: 'citiesbook11.png',
+      title: 'Cities Can Wait Artwork'
+    },
+    {
+      file: 'citiesbook12.png',
+      title: 'Cities Can Wait Artwork'
+    }    
   ]
 )
 
@@ -176,31 +242,31 @@ angular.module('demigs', ['ngMaterial','ngTouch','ngRoute','ngSanitize','brSocia
   }
 })
 
-.directive('scPlayer', function($window, $timeout) {
-  return {
-    controller: function($scope, $element) {
-      $scope.checkPlayerY = function() {
-        var playerY = $element[0].getBoundingClientRect().top;
-        var navY = $element[0].previousElementSibling.getBoundingClientRect().bottom;
-        if (playerY < (navY)) {
-          $element.addClass('playerhide');
-        } else if ($element.hasClass('playerhide')) {
-          $element.removeClass('playerhide');
-        }
-      }
-    },
-    link: function preLink($scope, $element) {
-      angular.element($window).bind('load', function() {
-        $timeout(function() {
-          $scope.checkPlayerY();
-        }, 100);
-      });
-      angular.element($window).bind('resize', function() {
-        $scope.checkPlayerY();
-      });
-    }
-  };
-})
+// .directive('scPlayer', function($window, $timeout) {
+//   return {
+//     controller: function($scope, $element) {
+//       $scope.checkPlayerY = function() {
+//         var playerY = $element[0].getBoundingClientRect().top;
+//         var navY = $element[0].previousElementSibling.getBoundingClientRect().bottom;
+//         if (playerY < (navY)) {
+//           $element.addClass('playerhide');
+//         } else if ($element.hasClass('playerhide')) {
+//           $element.removeClass('playerhide');
+//         }
+//       }
+//     },
+//     link: function preLink($scope, $element) {
+//       angular.element($window).bind('load', function() {
+//         $timeout(function() {
+//           $scope.checkPlayerY();
+//         }, 100);
+//       });
+//       angular.element($window).bind('resize', function() {
+//         $scope.checkPlayerY();
+//       });
+//     }
+//   };
+// })
 
 .directive('scPlayerKnob', function($window) {
   return {
