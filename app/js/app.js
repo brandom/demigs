@@ -30,7 +30,7 @@ angular.module('demigs', ['ngMaterial','ngTouch','ngRoute','ngSanitize','brSocia
   $locationProvider.html5Mode(true);
 })
 
-.factory('Page', function($location, $mdSidenav, $anchorScroll) {
+.factory('Page', function($location, $mdSidenav, $anchorScroll, SC, $timeout) {
   var title = '';
   var pageClass = '';
   return {
@@ -59,6 +59,11 @@ angular.module('demigs', ['ngMaterial','ngTouch','ngRoute','ngSanitize','brSocia
     },
     toggleNav: function() {
       $mdSidenav('left').toggle();
+      if (SC.isPlaying()) {
+        $timeout(function() {
+          $anchorScroll('player');
+        }, 200);
+      }
     },
     hideNav: function() {
       $mdSidenav('left').close();

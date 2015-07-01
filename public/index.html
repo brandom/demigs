@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
   
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="icon" href="assets/img/favicon.ico">
   <!-- Place favicon.ico in the root directory -->
   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
@@ -17,6 +17,14 @@
   <script src="http://connect.soundcloud.com/sdk.js"></script>
   <script src="js/demigs.js"></script>
   <script>window.viewportUnitsBuggyfill.init();</script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-64697008-1', 'auto');
+    ga('send', 'pageview');
+  </script>
   <style>
   [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
     display: none !important;
@@ -30,7 +38,7 @@
       <md-button class="left-nav-close md-icon-button" md-no-ink aria-label="Toggle nav">
         <i class=" fa fa-times" ng-click="Page.hideNav()"></i>
       </md-button>
-      <div flex class="nav" ng-include="'assets/img/nav-newest.svg'"></div>
+      <div flex class="nav" ng-include="'assets/img/nav.svg'"></div>
       <div flex class="social-media-links">
         <a href="https://facebook.com/thedemigs" target="_blank">
           <i class="fa fa-lg fa-facebook"></i>
@@ -46,6 +54,7 @@
         </a>
       </div>
     </div>
+    <a name="player"></a>
     <div class="player" ng-cloak>
       <div class="player-content">
         <img ng-src="{{player.getAlbumCover()}}" src="assets/img/welcometohardtimes.png" class="player-artwork">

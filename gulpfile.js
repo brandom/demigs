@@ -84,7 +84,4 @@ gulp.task('browser-sync', function() {
     notify: true,
     logPrefix: 'BS'
   });
-  // gulp.watch("./public/**/*").on('change', browserSync.reload);
 });
-
-//'less', 'js', 'js-view', 'dist'
