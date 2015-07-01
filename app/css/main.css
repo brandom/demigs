@@ -446,7 +446,8 @@ section .date {
 
 .mobile-nav > .md-button {
   background-color: #A9921D;
-  font-size: 1em;
+  font-size: 1.3em;
+  line-height: .1em;
 }
 
 .mobile-nav > .md-button:hover, .mobile-nav > .md-button:active, .mobile-nav > .md-button:focus {

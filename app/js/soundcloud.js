@@ -341,6 +341,9 @@ angular.module('brSoundCloud', [])
         'assets/img/yardling.png'
       ];
       return albumCovers[Player.current.album];
+    },
+    isPlaying: function() {
+      return Player.track.playState === 1 && !Player.track.paused;
     }
   }
   

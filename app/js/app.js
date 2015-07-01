@@ -1,4 +1,4 @@
-angular.module('demigs', ['ngMaterial','ngTouch','ngRoute','ngSanitize','brSocialFeed','brSoundCloud','akoenig.deckgrid','wu.masonry'])
+angular.module('demigs', ['ngMaterial','ngTouch','ngRoute','ngSanitize','brSocialFeed','brSoundCloud','akoenig.deckgrid','wu.masonry','templates'])
 
 .config(function($routeProvider, $locationProvider) {
   $routeProvider

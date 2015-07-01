@@ -25,7 +25,7 @@
     "jquery-knob": "~1.2.11",
     "angular-touch": "1.4.0",
     "viewport-units-buggyfill": "~0.5.0",
-    "image-map-resizer": "~0.5.4"
+    "angular-material": "~0.10.0"
   },
   "overrides": {
     "fancybox": {

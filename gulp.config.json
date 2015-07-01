@@ -1,0 +1,26 @@
+{
+  "js": "app/js/*.js",
+  "css": "app/css/*.css",
+  "templates": "app/templates/*.html",
+  "vendorOrder": [
+    "jquery.js",
+    "jquery.bridget.js",
+    "get-style-property.js",
+    "get-size.js",
+    "EventEmitter.js",
+    "eventie.js",
+    "doc-ready.js",
+    "matches-selector.js",
+    "item.js",
+    "outlayer.js",
+    "masonry.js",
+    "imagesloaded.js",
+    "angular.js",
+    "angular-masonry.js",
+    "angular*.js",
+    "underscore.js",
+    "moment.js",
+    "*.js"
+  ],
+  "public": "public/"
+}

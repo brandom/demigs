@@ -11,11 +11,12 @@
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <!-- Place favicon.ico in the root directory -->
   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.10.0/angular-material.min.css">
-  <link rel="stylesheet" href="css/social-feed.css">
-  <link rel="stylesheet" href="css/vendor.css">
-  <link rel="stylesheet" href="css/main.css">
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/demigs.css">
+  <script type="text/javascript" src="http://fast.fonts.net/jsapi/56dd6f64-ea41-48f9-9cef-eb0ab9eb63d0.js"></script>
+  <script src="http://connect.soundcloud.com/sdk.js"></script>
+  <script src="js/demigs.js"></script>
+  <script>window.viewportUnitsBuggyfill.init();</script>
   <style>
   [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
     display: none !important;
@@ -68,7 +69,8 @@
   <div layout="column" role="main" flex>
     <md-toolbar class="mobile-nav">
       <md-button class="md-fab nav-bars" md-no-ink aria-label="Navigation" ng-click="Page.toggleNav()">
-        <md-icon md-font-icon="fa fa-bars"></md-icon>
+        <md-icon md-font-icon="fa fa-volume-up" ng-if="player.isPlaying()"></md-icon>
+        <md-icon md-font-icon="fa fa-bars" ng-if="!player.isPlaying()"></md-icon>
       </md-button>
     </md-toolbar>
     <md-content flex class="content" ng-cloak>
@@ -87,14 +89,5 @@
       </div>
     </md-content>
   </div>
-  <script src="js/vendor.js"></script>
-  <script type="text/javascript" src="http://fast.fonts.net/jsapi/56dd6f64-ea41-48f9-9cef-eb0ab9eb63d0.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angular_material/0.10.0/angular-material.min.js"></script>
-  <script>window.viewportUnitsBuggyfill.init();</script>
-  <script src="js/prototype.js"></script>
-  <script src="http://connect.soundcloud.com/sdk.js"></script>
-  <script src="js/socialfeed.js"></script> 
-  <script src="js/soundcloud.js"></script>
-  <script src="js/app.js"></script>
 </body>
 </html>
