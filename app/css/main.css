@@ -23,8 +23,8 @@ a:hover , a:active {
   height:auto;
 }
 
-@-moz-document url-prefix() {  
-  img {   
+@-moz-document url-prefix() {
+  img {
     width: 100%;
   }
 }
@@ -574,4 +574,9 @@ md-sidenav.md-closed {
   margin: 0 auto;
   text-align: center;
   margin-top: 10px;
+}
+
+.icon {
+  margin-top: 6px;
+  margin-bottom: -6px;
 }
