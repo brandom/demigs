@@ -1,6 +1,6 @@
 angular.module('demigs', ['ngMaterial','ngTouch','ngRoute','ngSanitize','brSocialFeed','brSoundCloud','akoenig.deckgrid','wu.masonry','templates'])
 
-.config(function($routeProvider, $locationProvider) {
+.config(['$routeProvider', '$locationProvider'], function($routeProvider, $locationProvider) {
   $routeProvider
   .when('/', {
     templateUrl: 'main.html',
@@ -26,11 +26,11 @@ angular.module('demigs', ['ngMaterial','ngTouch','ngRoute','ngSanitize','brSocia
     templateUrl: 'story.html',
     controller: 'StoryCtrl'
   });
-  
+
   $locationProvider.html5Mode(true);
 })
 
-.factory('Page', function($location, $mdSidenav, $anchorScroll, SC, $timeout) {
+.factory('Page', ['$location', '$mdSidenav', '$anchorScroll', 'SC', '$timeout'], function($location, $mdSidenav, $anchorScroll, SC, $timeout) {
   var title = '';
   var pageClass = '';
   return {
@@ -40,7 +40,7 @@ angular.module('demigs', ['ngMaterial','ngTouch','ngRoute','ngSanitize','brSocia
     navOpen: function() {
       return $mdSidenav('left').isOpen();
     },
-    title: function() { 
+    title: function() {
       return 'The Demigs | ' + title;
     },
     pageTitle: function() {
@@ -175,11 +175,11 @@ angular.module('demigs', ['ngMaterial','ngTouch','ngRoute','ngSanitize','brSocia
     {
       file: 'citiesbook12.png',
       title: 'Cities Can Wait Artwork'
-    }    
+    }
   ]
 )
 
-.controller('PageCtrl', function($scope, Page, SC, $mdMedia) {
+.controller('PageCtrl', ['$scope', 'Page', 'SC', '$mdMedia'], function($scope, Page, SC, $mdMedia) {
   $scope.$medMedia = $mdMedia;
   $scope.Page = Page;
   $scope.player = SC;
@@ -188,12 +188,12 @@ angular.module('demigs', ['ngMaterial','ngTouch','ngRoute','ngSanitize','brSocia
   });
 })
 
-.controller('HomeCtrl', function($scope, Page, SocialFeed) {
+.controller('HomeCtrl', ['$scope', 'Page', 'SocialFeed'], function($scope, Page, SocialFeed) {
   Page.setTitle('Latest');
   Page.setClass('deviler');
 })
 
-.controller('FeedCtrl', function($scope, Page, SocialFeed, $filter) {
+.controller('FeedCtrl', ['$scope', 'Page', 'SocialFeed', '$filter'], function($scope, Page, SocialFeed, $filter) {
   Page.setTitle('Feed');
   Page.setClass('fox');
 
@@ -201,27 +201,27 @@ angular.module('demigs', ['ngMaterial','ngTouch','ngRoute','ngSanitize','brSocia
     data = $filter('orderBy')(data, '-dt_create');
     $scope.feed = data;
   });
-  
+
 })
 
-.controller('AlbumsCtrl', function($scope, Page, SocialFeed, SC) {
+.controller('AlbumsCtrl', ['$scope', 'Page', 'SocialFeed', 'SC'], function($scope, Page, SocialFeed, SC) {
   Page.setTitle('Albums');
   Page.setClass('icarus');
   $scope.Player = SC;
 })
 
-.controller('CalendarCtrl', function($scope, Page) {
+.controller('CalendarCtrl', ['$scope', 'Page'], function($scope, Page) {
   Page.setTitle('Calendar');
   Page.setClass('clock');
 })
 
-.controller('ArtworkCtrl', function($scope, Page, Artwork) {
+.controller('ArtworkCtrl', ['$scope', 'Page', 'Artwork'], function($scope, Page, Artwork) {
   Page.setTitle('Artwork');
   Page.setClass('cat');
   $scope.artwork = Artwork;
 })
 
-.controller('StoryCtrl', function($scope, Page) {
+.controller('StoryCtrl', ['$scope', 'Page'], function($scope, Page) {
   Page.setTitle('Story');
   Page.setClass('boy-toy');
 })
@@ -273,7 +273,7 @@ angular.module('demigs', ['ngMaterial','ngTouch','ngRoute','ngSanitize','brSocia
 //   };
 // })
 
-.directive('scPlayerKnob', function($window) {
+.directive('scPlayerKnob', ['$window'], function($window) {
   return {
     require: 'ngModel',
     controller: function($scope, $element) {
