@@ -1,4 +1,4 @@
-angular.module('demigs', ['ngMaterial','ngTouch','ngRoute','ngSanitize','brSocialFeed','brSoundCloud','akoenig.deckgrid','wu.masonry','templates'])
+angular.module('demigs', ['ngMaterial','ngRoute','ngSanitize','brSocialFeed','brSoundCloud','akoenig.deckgrid','wu.masonry','templates'])
 
 .config(function($routeProvider, $locationProvider) {
   $routeProvider
@@ -26,7 +26,7 @@ angular.module('demigs', ['ngMaterial','ngTouch','ngRoute','ngSanitize','brSocia
     templateUrl: 'story.html',
     controller: 'StoryCtrl'
   });
-  
+
   $locationProvider.html5Mode(true);
 })
 
@@ -40,7 +40,7 @@ angular.module('demigs', ['ngMaterial','ngTouch','ngRoute','ngSanitize','brSocia
     navOpen: function() {
       return $mdSidenav('left').isOpen();
     },
-    title: function() { 
+    title: function() {
       return 'The Demigs | ' + title;
     },
     pageTitle: function() {
@@ -175,7 +175,7 @@ angular.module('demigs', ['ngMaterial','ngTouch','ngRoute','ngSanitize','brSocia
     {
       file: 'citiesbook12.png',
       title: 'Cities Can Wait Artwork'
-    }    
+    }
   ]
 )
 
@@ -201,7 +201,7 @@ angular.module('demigs', ['ngMaterial','ngTouch','ngRoute','ngSanitize','brSocia
     data = $filter('orderBy')(data, '-dt_create');
     $scope.feed = data;
   });
-  
+
 })
 
 .controller('AlbumsCtrl', function($scope, Page, SocialFeed, SC) {
